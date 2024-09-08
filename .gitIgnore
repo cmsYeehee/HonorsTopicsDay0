@@ -1,1 +1,5 @@
+#ignore all .txt files
 *.txt
+#ignore the day1 files
+Storage.dat
+.Ds_Store
