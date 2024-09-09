@@ -3,3 +3,4 @@
 #ignore the day1 files
 Storage.dat
 .Ds_Store
+/bin
