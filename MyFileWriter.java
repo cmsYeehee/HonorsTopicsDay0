@@ -1,6 +1,7 @@
 import java.io.*;
 import java.nio.file.*;
 import java.nio.charset.StandardCharsets;
+import java.util.Scanner;
 
 public class MyFileWriter {
     public static void main(String[] args) {
@@ -21,6 +22,23 @@ public class MyFileWriter {
        try(FileOutputStream outputStream2 = new FileOutputStream(folderFile)){
             outputStream2.write(secret.getBytes());
         }catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    private static void printFileSize(String FileName)
+    {
+        try{
+        int characterCount = 0;
+        File FileToCount = new File(FileName);
+        Scanner scannerCounter = new Scanner(FileToCount);
+        while(scannerCounter.hasNextLine())
+        {
+            String line = scannerCounter.nextLine();
+            characterCount += line.length();
+        }
+        System.out.println(characterCount + "");
+        scannerCounter.close();
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
