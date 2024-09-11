@@ -4,6 +4,18 @@ import java.nio.charset.StandardCharsets;
 import java.util.Scanner;
 
 public class MyFileWriter {
+
+    private static void printTotalFileSize(String... fileNames) {
+        long totalSize = 0;
+        for (String fileName : fileNames) {
+            File file = new File(fileName);
+            if (file.exists()) {
+                totalSize += file.length();
+            }
+        }
+        System.out.println("Total size of all files: " + totalSize + " bytes");
+    }
+
     public static void main(String[] args) {
         String data = "The secret Password is: qpdb25";
         String fileName3 = ".thehider.txt";
@@ -24,6 +36,7 @@ public class MyFileWriter {
         }catch (IOException e) {
             e.printStackTrace();
         }
+        printTotalFileSize(fileName3, FolderFileName, FolderName);
     }
     private static void printFileSize(String FileName)
     {
